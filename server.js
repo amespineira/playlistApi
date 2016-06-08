@@ -22,7 +22,12 @@ router.use(function(req, res, next) {
 });
 router.route('/')
   .get(function(req, res){
-    console.log(db);
+    mongoose.connect('mongodb://me:mod345@jello.modulusmongo.net:27017/oRej2izu');
+   db=mongoose.connection;
+   db.on('error', console.error.bind(console, 'connection error:'));
+   db.once('open', function() {
+     console.log('connected to database');
+   });
     res.send('Connected')
   })
 router.route('/playlists')
