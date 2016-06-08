@@ -1,5 +1,7 @@
 var mongoose   = require('mongoose');
- mongoose.connect('mongodb://api:api123@ds011314.mlab.com:11314/playlist');
+ //mongoose.connect('mongodb://api:api123@ds011314.mlab.com:11314/playlist');
+ console.log(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI);
 db=mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
