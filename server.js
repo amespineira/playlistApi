@@ -90,4 +90,3 @@ router.route('/playlists/remove')
   })
 app.use('/pa1', router);
 app.listen(port);
-console.log('Magic happens on port ' + port);
