@@ -1,5 +1,5 @@
 var mongoose   = require('mongoose');
- mongoose.connect('mongodb://me:mod345@jello.modulusmongo.net:27017/oRej2izu');
+ mongoose.connect('mongodb://api:api123@ds011314.mlab.com:11314/playlist');
 db=mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -22,12 +22,6 @@ router.use(function(req, res, next) {
 });
 router.route('/')
   .get(function(req, res){
-    mongoose.connect('mongodb://me:mod345@jello.modulusmongo.net:27017/oRej2izu');
-   db=mongoose.connection;
-   db.on('error', console.error.bind(console, 'connection error:'));
-   db.once('open', function() {
-     console.log('connected to database');
-   });
     res.send('Connected')
   })
 router.route('/playlists')
@@ -43,7 +37,6 @@ router.route('/playlists')
       })
     })
     .get(function(req, res){
-      res.send("worked")
       Playlist.find(function(err, playlist) {
           if (err)
               res.send(err);
