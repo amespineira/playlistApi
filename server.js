@@ -16,7 +16,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
-console.log(Playlist.find(function(err, playlist) {}));
+Playlist.find(function(err, playlist) {
+  console.log(playlist);
+});
 var router = express.Router();
 router.use(function(req, res, next) {
     // do logging
