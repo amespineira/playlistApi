@@ -22,6 +22,7 @@ router.use(function(req, res, next) {
 });
 router.route('/')
   .get(function(req, res){
+    console.log(db);
     res.send('Connected')
   })
 router.route('/playlists')
