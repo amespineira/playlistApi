@@ -20,6 +20,10 @@ router.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+router.route('/')
+  .get(function(req, res){
+    res.send('Connected')
+  })
 router.route('/playlists')
     .post(function(req, res) {
       var playlist = new Playlist();
