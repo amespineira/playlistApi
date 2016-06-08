@@ -42,9 +42,9 @@ router.route('/playlists')
     })
     .get(function(req, res){
       Playlist.find(function(err, playlist) {
-          if (err)
+          if (err){
               res.send(err);
-
+          }
           res.json(playlist);
       });
     })
