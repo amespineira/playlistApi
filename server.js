@@ -37,6 +37,7 @@ router.route('/playlists')
       })
     })
     .get(function(req, res){
+      res.send("worked")
       Playlist.find(function(err, playlist) {
           if (err)
               res.send(err);
